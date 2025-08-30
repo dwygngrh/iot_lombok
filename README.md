@@ -1,13 +1,13 @@
 # iot_lombok
-# 1. setting software, lakukan sekali saja
+# setting software, lakukan sekali saja
 sudo apt update  
 sudo apt install net-tools  
 sudo apt install openssl -y  
 sudo apt install -y mosquitto mosquitto-clients  
 
 # Aktifkan Mosquito. 
-# Untuk nonaktif bisa mengganti perintah: 
-# enable-->disable. start-->stop  
+### Untuk nonaktif bisa mengganti perintah: 
+### enable-->disable. start-->stop  
 sudo systemctl enable mosquitto  
 sudo systemctl start mosquitto  
 
