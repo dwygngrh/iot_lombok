@@ -55,7 +55,6 @@ mosquitto_sub -h localhost -p 8883 \
 # topic ialah sensor/temp  
 mosquitto_sub -h localhost -p 8883 \  
  --cafile /etc/mosquitto/certs/ca.crt \  
- -u myiotuser -P mypassword \  
  -t "sensors/#" -v  
 
 ## Tampilkan data sensor
