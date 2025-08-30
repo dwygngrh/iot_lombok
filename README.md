@@ -9,8 +9,7 @@ pip install paho-mqtt
 sudo apt install certbot  
  
 ## Aktifkan Mosquito. 
-### Untuk nonaktif bisa mengganti perintah:
-### enable-->disable. start-->stop
+### Untuk nonaktif bisa mengganti perintah: enable-->disable. start-->stop
 sudo systemctl enable mosquitto  
 sudo systemctl start mosquitto  
 
