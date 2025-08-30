@@ -1,16 +1,16 @@
 # iot_lombok
 # 1. setting software, lakukan sekali saja
-sudo apt update
-sudo apt install net-tools
-sudo apt install openssl -y
-sudo apt install -y mosquitto mosquitto-clients
+sudo apt update  
+sudo apt install net-tools  
+sudo apt install openssl -y  
+sudo apt install -y mosquitto mosquitto-clients  
 
-# Aktifkan Mosquito. Untik nonaktif bisa mengganti perintah enable-->disable. start-->stop
-sudo systemctl enable mosquitto
-sudo systemctl start mosquitto
+# Aktifkan Mosquito. Untik nonaktif bisa mengganti perintah enable-->disable. start-->stop  
+sudo systemctl enable mosquitto  
+sudo systemctl start mosquitto  
 
-# Membuat direktory file certifikat dan key buat TLS 
-mkdir ~/mqtt_certs && cd ~/mqtt_certs
+# Membuat direktory file certifikat dan key buat TLS   
+mkdir ~/mqtt_certs && cd ~/mqtt_certs  
 
 ## Buat CA (Certificate Authority)
 openssl genrsa -out ca.key 2048
