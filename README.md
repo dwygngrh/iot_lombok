@@ -5,7 +5,8 @@ sudo apt install net-tools
 sudo apt install openssl -y  
 sudo apt install -y mosquitto mosquitto-clients  
 
-# Aktifkan Mosquito. Untik nonaktif bisa mengganti perintah enable-->disable. start-->stop  
+# Aktifkan Mosquito. 
+# Untuk nonaktif bisa mengganti perintah enable-->disable. start-->stop  
 sudo systemctl enable mosquitto  
 sudo systemctl start mosquitto  
 
