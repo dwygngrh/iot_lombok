@@ -23,8 +23,7 @@ openssl genrsa -out server.key 2048
 openssl req -new -key server.key -out server.csr
 
 ## Sign server cert with your CA
-openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key \
-  -CAcreateserial -out server.crt -days 365  
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365  
 
 ## Cek file sertifikat dan key di ~/mqtt_certs
 ca.crt → public CA cert (clients need this)  
