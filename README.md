@@ -17,9 +17,10 @@ sudo systemctl start mosquitto
 mkdir ~/mqtt_certs && cd ~/mqtt_certs  
 
 ## Buat CA (Certificate Authority)
-running ./genscr.bash  
+./create_CA.yoga
+./create_certificate.yoga
 
-## Cek file sertifikat dan key di ~/mqtt_certs
+## Cek apakah seluruh file sertifikat dan key di tersedia di  ~/mqtt_certs
 ca.crt → untuk public CA cert (clients need this)  
 server.crt → untuk server TLS certificate  
 server.key → untuk server private key  
