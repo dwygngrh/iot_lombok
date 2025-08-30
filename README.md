@@ -15,7 +15,7 @@ mkdir ~/mqtt_certs && cd ~/mqtt_certs
 ## Buat CA (Certificate Authority)
 openssl genrsa -out ca.key 2048  
 openssl req -new -x509 -days 3650 -key ca.key -out ca.crt  
-## Buat Server Certificate
+
 #### Private key for server
 openssl genrsa -out server.key 2048  
 
