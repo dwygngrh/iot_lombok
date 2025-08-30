@@ -34,7 +34,7 @@ server.key → server private key
 sudo nano /etc/mosquitto/conf.d/tls.conf  
 Paste:  
 
-################################################################
+################################################################  
 listener 8883  
 protocol mqtt  
 cafile /home/dnugroho/mqtt_certs/ca.crt  
