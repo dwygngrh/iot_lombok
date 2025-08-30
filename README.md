@@ -70,8 +70,8 @@ mosquitto_sub -h localhost -p 8883 \
  -t "sensors/#" -v  
 
 ## Tampilkan data sensor
-# bisa Store data dalam database → e.g., Python script writing to InfluxDB, PostgreSQL, or MongoDB.
-# bisa langsung tampil di Dashboard → use Grafana atau Apache Superset to visualize.
+### bisa Store data dalam database → e.g., Python script writing to InfluxDB, PostgreSQL, or MongoDB.
+### bisa langsung tampil di Dashboard → use Grafana atau Apache Superset to visualize.
 
 import paho.mqtt.client as mqtt  
 
