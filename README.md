@@ -1,6 +1,5 @@
-# iot_lombok
-# Gerupuk 30 Agustus 2025  
-# setting software, lakukan sekali saja
+# iot_lombok, Gerupuk 30 Agustus 2025  
+## setting software, lakukan sekali saja
 sudo apt update  
 sudo apt install net-tools  
 sudo apt install openssl -y  
@@ -9,13 +8,13 @@ sudo apt install -y python3-pip python3-venv build-essential     libpq-dev libsa
 pip install paho-mqtt  
 sudo apt install certbot  
  
-# Aktifkan Mosquito. 
+## Aktifkan Mosquito. 
 ### Untuk nonaktif bisa mengganti perintah:
 ### enable-->disable. start-->stop
 sudo systemctl enable mosquitto  
 sudo systemctl start mosquitto  
 
-# Membuat direktory file certifikat dan key buat TLS   
+## Membuat direktory file certifikat dan key buat TLS   
 mkdir ~/mqtt_certs && cd ~/mqtt_certs  
 
 ## Buat CA (Certificate Authority)
@@ -26,7 +25,7 @@ ca.crt → untuk public CA cert (clients need this)
 server.crt → untuk server TLS certificate  
 server.key → untuk server private key  
 
-# Konfigurasi MQTT Mosquito
+## Konfigurasi MQTT Mosquito
 sudo nano /etc/mosquitto/conf.d/tls.conf  
 Paste ke dalam tls.conf:  
   
@@ -35,7 +34,6 @@ protocol mqtt
 cafile /home/dnugroho/mqtt_certs/ca.crt  
 certfile /home/dnugroho/mqtt_certs/server.crt  
 keyfile /home/dnugroho/mqtt_certs/server.key  
-  
 require_certificate true  
   
 ## Restart Mosquitto
@@ -44,7 +42,7 @@ sudo systemctl restart mosquitto
 ## Check it’s listening on secure port:
 sudo netstat -tlnp | grep 8883  
 
-# Lakukan transfer data dari IOT  
+## Lakukan transfer data dari IOT  
 ### berikan perintah ini di server jika menggunakan password
 ### topic contoh :  sensor/temp
 
@@ -53,9 +51,8 @@ mosquitto_sub -h localhost -p 8883 \
  -u myiotuser -P mypassword \  
  -t "sensors/#" -v  
 
- # berikan perintah ini di server jika tanpa password
-# topic ialah sensor/temp
-
+# berikan perintah ini di server jika tanpa password
+# topic ialah sensor/temp  
 mosquitto_sub -h localhost -p 8883 \  
  --cafile /etc/mosquitto/certs/ca.crt \  
  -u myiotuser -P mypassword \  
@@ -76,7 +73,9 @@ client.tls_set(ca_certs="ca.crt")
 client.connect("103.56.92.100", 8883)  
 client.subscribe("sensors/#")  
 client.on_message = on_message  
-client.loop_forever()  
+client.loop_forever() 
+
+## save data sensor ke dalam file. running file: 
 
 ## Store raw data menggunakan script python
 
