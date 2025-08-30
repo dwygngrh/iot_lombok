@@ -1,10 +1,14 @@
 # iot_lombok
+# Gerupuk 30 Agustus 2025  
 # setting software, lakukan sekali saja
 sudo apt update  
 sudo apt install net-tools  
 sudo apt install openssl -y  
 sudo apt install -y mosquitto mosquitto-clients  
-
+sudo apt install -y python3-pip python3-venv build-essential     libpq-dev libsasl2-dev libldap2-dev libssl-dev  
+pip install paho-mqtt  
+sudo apt install certbot  
+ 
 # Aktifkan Mosquito. 
 ### Untuk nonaktif bisa mengganti perintah:
 ### enable-->disable. start-->stop
@@ -15,26 +19,17 @@ sudo systemctl start mosquitto
 mkdir ~/mqtt_certs && cd ~/mqtt_certs  
 
 ## Buat CA (Certificate Authority)
-openssl genrsa -out ca.key 2048  
-openssl req -new -x509 -days 3650 -key ca.key -out ca.crt  
-openssl genrsa -out server.key 2048  
-
-## Buat CSR (Certificate Signing Request)
-openssl req -new -key server.key -out server.csr
-
-## Sign server cert with your CA
-openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365  
+running ./genscr.bash  
 
 ## Cek file sertifikat dan key di ~/mqtt_certs
-ca.crt → public CA cert (clients need this)  
-server.crt → server TLS certificate  
-server.key → server private key  
+ca.crt → untuk public CA cert (clients need this)  
+server.crt → untuk server TLS certificate  
+server.key → untuk server private key  
 
 # Konfigurasi MQTT Mosquito
 sudo nano /etc/mosquitto/conf.d/tls.conf  
-Paste:  
-
-################################################################  
+Paste ke dalam tls.conf:  
+  
 listener 8883  
 protocol mqtt  
 cafile /home/dnugroho/mqtt_certs/ca.crt  
@@ -42,8 +37,7 @@ certfile /home/dnugroho/mqtt_certs/server.crt
 keyfile /home/dnugroho/mqtt_certs/server.key  
   
 require_certificate true  
-################################################################  
-
+  
 ## Restart Mosquitto
 sudo systemctl restart mosquitto  
 
@@ -51,9 +45,8 @@ sudo systemctl restart mosquitto
 sudo netstat -tlnp | grep 8883  
 
 # Lakukan transfer data dari IOT  
-
-# berikan perintah ini di server jika menggunakan password
-# topic ialah sensor/temp
+### berikan perintah ini di server jika menggunakan password
+### topic contoh :  sensor/temp
 
 mosquitto_sub -h localhost -p 8883 \  
  --cafile /etc/mosquitto/certs/ca.crt \  
