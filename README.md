@@ -43,7 +43,11 @@ sudo systemctl restart mosquitto
 ### Check it’s listening on secure port:
 sudo netstat -tlnp | grep 8883  
 
-## 2. Ubah code di raspberry pi
+## Install GRAFANA  
+ikuti tutorial ini:  
+https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/
+
+## 3. Ubah code di raspberry pi
 ### Gunakan chat gpt dan berikan perintah berikut:
 modify python code in raspberry to send the data using GSM modeem over MQTT 
 MQTT_broker : 103.56.92.100  
