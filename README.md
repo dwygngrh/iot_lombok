@@ -36,16 +36,14 @@ cafile /home/dnugroho/mqtt_certs/ca.crt
 certfile /home/dnugroho/mqtt_certs/server.crt  
 keyfile /home/dnugroho/mqtt_certs/server.key  
 require_certificate true  
-
-## file ser
 ### Restart Mosquitto
 sudo systemctl restart mosquitto  
 ### Check it’s listening on secure port:
 sudo netstat -tlnp | grep 8883  
 
-## Install GRAFANA  
+## 2. Install GRAFANA  
 ikuti tutorial ini:  
-https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/
+https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/  
 
 ## 3. Ubah code di raspberry pi
 ### Gunakan chat gpt dan berikan perintah berikut:
