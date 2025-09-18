@@ -3,8 +3,7 @@ Langkah yang harus dilakukan:
 1. Install MQTT server di server. Bisa memakai laptop sebagai server. Harus memakai IP Public.  
 2. Install grafana  
 3. Untuk tampilan advance bisa menggunakan apache superset. tapi installnya susaah
-4. Setelah MQTT server siap. Ubah code python di raspberry 3b+ (raspi) dari yang awalnya hanya membaca data, diubah menjadi membaca data dan mengirimkan ke server MQTT format JSON menggunakan modem GSM
-
+4. Setelah MQTT server siap. Ubah code python di raspberry 3b+ (raspi) dari yang awalnya hanya membaca data, diubah menjadi membaca data dan mengirimkan ke server MQTT format JSON menggunakan modem GSM  
 ## 1. Install MQTT server menggunakan software mqtt server mosquito
 #### setting software, lakukan sekali saja  
 sudo apt update  
@@ -42,8 +41,10 @@ sudo systemctl restart mosquitto
 sudo netstat -tlnp | grep 8883  
 
 ## 2. Install GRAFANA  
-ikuti tutorial ini:  
+Install GRAFANA ikuti tutorial ini:  
 https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/  
+Install Apache superset ikuti tutorial ini:  
+https://superset.apache.org/docs/installation/pypi/  
 
 ## 3. Ubah code di raspberry pi
 ### Gunakan chat gpt dan berikan perintah berikut:
